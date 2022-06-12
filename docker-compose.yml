@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  neo4j:
+    image: neo4j:4.2.5
+    container_name: my_neo4j
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - ./neo4j/data:/data
+
+  python:
+    build: ./python_docker
+    container_name: my_python3
+    tty: true
